@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+  <body>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+
+      d3.json("countries_2012.json", function(error, data){
+
+        var columns = Object.keys(data.data[0]);
+
+        var table = d3.select("body").append("table"),
+          thead = table.append("thead")
+                       .attr("class", "thead");
+          tbody = table.append("tbody");
+
+        table.append("caption")
+          .html("World Countries Ranking");
+
+        thead.append("tr").selectAll("th")
+          .data(columns)
+        .enter()
+          .append("th")
+          .text(function(d) { return d; })
+          .on("click", function(header, i) {
+            tbody.selectAll("tr").sort(function(a, b) {
+              return d3.descending(a[header], b[header]);
+            });
+          });
+
+        var rows = tbody.selectAll("tr.row")
+          .data(data.data)
+          .enter()
+          .append("tr").attr("class", "row");
+
+        var cells = rows.selectAll("td")
+          .data(function(row) {
+              return d3.range(Object.keys(row).length).map(function(column, i) {
+                  return row[Object.keys(row)[i]];
+              });
+          })
+          .enter()
+          .append("td")
+          .text(function(d) { return d; })
+          .on("mouseover", function(d, i) {
+
+            d3.select(this.parentNode)
+              .style("background-color", "#F3ED86");
+
+          }).on("mouseout", function() {
+
+            tbody.selectAll("tr")
+              .style("background-color", null)
+              .selectAll("td")
+              .style("background-color", null);
+
+          });
+
+      });
+    </script>
+  </body>
+</html>

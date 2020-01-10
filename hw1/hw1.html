@@ -1,61 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>VIS 101 Homework</title>
-
-<script>
-
-var query_array = ["\"All successful men and women are big dreamers. They imagine what their future could be, ideal in every respect, and then \
-they work every day toward their distant vision, that goal or purpose.\" – Brian Tracy",
-"\"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.\" ― Marilyn Monroe",
-"\"Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.\" ― H. Jackson Brown Jr.",
- "\"The opposite of love is not hate, it's indifference. The opposite of art is not ugliness, it's indifference. The opposite of faith is not heresy, it's indifference. And the opposite of life is not death, it's indifference.\" ― Elie Wiesel"]
-var index = 0
-var query_cont = query_array.length
-
-
-function myFunction() {
-  index = index + 1
-  if (index > query_cont-1) {
-    index = 0
-  }
-  document.getElementById("inner").innerHTML = query_array[index];
-}
-</script>
-
-<style>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap'); */
-body {
-  font-family: 'Open Sans';
-
-}
-h1   {
-  color: #1946ba;
-  margin-left: 15px;
-}
-h2 {
-  margin-left: 15px;
-}
-#outer {
-  border: 3px solid #F5F5F5;
-  max-width: 960px;
-  margin-left: 15px;
-}
-#inner {
-  margin-left: 40px;
-  padding-left: 5px;
-  border-left: 2px solid Gray;
-  }
-button {
-  background-color:#ec0b43;
-  color: white;
-  padding: 5px 5px;
-  margin-top: 20px;
-  margin-left: 15px;
-  border: none;
-}
-
-</style>
+  <title>VIS 101 Homework</title>
+  <link rel="stylesheet" href="style.css?version=1s">
+  <script src="script.js"></script>
 </head>
 <body>
 
@@ -76,9 +24,6 @@ button {
 <br>
 
 </div>
-
-
-<button type="button" onclick="myFunction()">Change Quote Of the Day</button>
-
+  <button type="button" onclick="myFunction()">Change Quote Of the Day</button>
 </body>
 </html>
