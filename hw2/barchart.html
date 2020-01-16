@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+    rect {
+        fill:teal;
+        fill-opacity:.8;
+    }
+  </style>
+<meta charset="utf-8">
+  <body>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="main.js"></script>
+    <script>open_json(true)</script>
+
+    <div>
+        <p style = 'display:inline-block'>Time update::</p>
+        <p style = 'display: inline-block'>1995</p>
+        <input type="range" name="points" min="1995" max="2012" step="1" value="0" oninput="change_date(this.value)">
+        <p style = 'display: inline-block'>2012</p>
+    </div>
+
+    <div>
+        <p style = 'display:inline-block'>Encode bars by</p>
+        <input type="radio" name="Data" value="pop" onclick = 'set_show("population")' checked > Population
+        <input type="radio" name="Data" value="gdp" onclick = 'set_show("gdp")'> GDP
+        <input type="radio" name="Data" value="lex" onclick = 'set_show("life_expectancy")'> Life expectancy
+    </div>
+
+    <div>
+        <p style = 'display:inline-block'>Sort by</p>
+        <input type="radio" name="sort" value="popu" onclick = 'change_sort("population")'> Population
+        <input type="radio" name="sort" value="name" onclick = 'change_sort("name")' > Name
+        <input type="radio" name="sort" value="name" onclick = 'change_sort("life_expectancy")'> Life expectancy
+        <input type="radio" name="sort" value="gdp" onclick = 'change_sort("gdp")'> GDP
+    </div>
+
+
+    <div>
+      <p style = 'display:inline-block'>Filter by:</p>
+      <lable>
+        <input style = 'display:inline-block' type="checkbox" name="cont1" value="Americas" onchange = 'set_filter("Americas")'> Americas
+        <input style = 'display:inline-block' type="checkbox" name="cont2" value="Africa" onchange = 'set_filter("Africa")'> Africa
+        <input style = 'display:inline-block' type="checkbox" name="cont3" value="Asia" onchange = 'set_filter("Asia")'> Asia
+        <input style = 'display:inline-block' type="checkbox" name="cont4" value="Europe" onchange = 'set_filter("Europe")'> Europe
+        <input style = 'display:inline-block' type="checkbox" name="cont5" value="Oceania" onchange = 'set_filter("Oceania")'> Oceania
+      </lable>
+    </div>
+    <div>
+        <p style = 'display:inline-block' >Aggregation:</p>
+        <input type="radio" name="Agg" value="noagg" onclick = 'set_aggr(false)' checked> None
+        <input type="radio" name="Agg" value="agg" onclick = 'set_aggr(true)'> by Continent<br>
+
+    </div>
+  </body>
+</html>

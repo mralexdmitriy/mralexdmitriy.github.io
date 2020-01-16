@@ -2,61 +2,31 @@
 <html lang="en">
 <meta charset="utf-8">
   <body>
-    <script src="https://d3js.org/d3.v3.min.js"></script>
-    <script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="main.js"></script>
+    <script>open_json(false)</script>
 
-      d3.json("countries_2012.json", function(error, data){
+    <div>
+        <p style = 'display:inline-block'>Time update::</p>
+        <p style = 'display: inline-block'>1995</p>
+        <input type="range" name="points" min="1995" max="2012" step="1" value="0" size = 1000 class = 'slider' id="slider" oninput="change_date(this.value)">
+        <p style = 'display: inline-block'>2012</p>
+    </div>
+    <div>
+      <p style = 'display:inline-block'>Filter by:</p>
+      <lable>
+        <input style = 'display:inline-block' type="checkbox" name="cont1" value="Americas" onchange = 'filter("Americas")'> Americas
+        <input style = 'display:inline-block' type="checkbox" name="cont2" value="Africa" onchange = 'filter("Africa")'> Africa
+        <input style = 'display:inline-block' type="checkbox" name="cont3" value="Asia" onchange = 'filter("Asia")'> Asia
+        <input style = 'display:inline-block' type="checkbox" name="cont4" value="Europe" onchange = 'filter("Europe")'> Europe
+        <input style = 'display:inline-block' type="checkbox" name="cont5" value="Oceania" onchange = 'filter("Oceania")'> Oceania
+      </lable>
+    </div>
+    <div>
+        <p style = 'display:inline-block' >Aggregation:</p>
+        <input type="radio" name="Agg" value="noagg" onclick = 'aggregation_trigger(false)' checked> None
+        <input type="radio" name="Agg" value="agg" onclick = 'aggregation_trigger(true)'> by Continent<br>
 
-        var columns = Object.keys(data.data[0]);
-
-        var table = d3.select("body").append("table"),
-          thead = table.append("thead")
-                       .attr("class", "thead");
-          tbody = table.append("tbody");
-
-        table.append("caption")
-          .html("World Countries Ranking");
-
-        thead.append("tr").selectAll("th")
-          .data(columns)
-        .enter()
-          .append("th")
-          .text(function(d) { return d; })
-          .on("click", function(header, i) {
-            tbody.selectAll("tr").sort(function(a, b) {
-              return d3.descending(a[header], b[header]);
-            });
-          });
-
-        var rows = tbody.selectAll("tr.row")
-          .data(data.data)
-          .enter()
-          .append("tr").attr("class", "row");
-
-        var cells = rows.selectAll("td")
-          .data(function(row) {
-              return d3.range(Object.keys(row).length).map(function(column, i) {
-                  return row[Object.keys(row)[i]];
-              });
-          })
-          .enter()
-          .append("td")
-          .text(function(d) { return d; })
-          .on("mouseover", function(d, i) {
-
-            d3.select(this.parentNode)
-              .style("background-color", "#F3ED86");
-
-          }).on("mouseout", function() {
-
-            tbody.selectAll("tr")
-              .style("background-color", null)
-              .selectAll("td")
-              .style("background-color", null);
-
-          });
-
-      });
-    </script>
+    </div>
   </body>
 </html>
