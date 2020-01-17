@@ -2,7 +2,7 @@
 my home-work
 Александров Дмитрий
 mr.alexdmitriy@mail.ru
-
+[a relative link](/hw1/hw1.html)
 ### hw1: https://mralexdmitriy.github.io/hw1/hw1.html
 ### hw2: https://mralexdmitriy.github.io/hw2/table.html
 ###    : https://mralexdmitriy.github.io/hw2/barchart.html
