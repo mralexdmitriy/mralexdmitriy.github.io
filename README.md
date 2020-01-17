@@ -1,4 +1,4 @@
-# visualisation
+# visualization
 my home-work
 Александров Дмитрий
 mr.alexdmitriy@mail.ru
